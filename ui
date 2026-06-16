@@ -5536,4 +5536,26 @@ function UILibrary.Section:Dropdown(sett, callback)
     return meta
 end
 
+function UILibrary.Section:Label(sett)
+    local cheatBase = objectGenerator.new("CheatBase")
+
+    local txt = cheatBase.Content.Text.Text
+    txt.Text = sett.Title or ""
+    txt.Size = UDim2.new(0.95, 0, 0.8, 0)
+    txt.Position = UDim2.new(0.05, 0, 0.5, 0)
+    txt.AnchorPoint = Vector2.new(0, 0.5)
+    txt.TextXAlignment = Enum.TextXAlignment.Left
+    txt.TextColor3 = Color3.fromRGB(75, 75, 75)
+    txt.Font = Enum.Font.Gotham
+    txt.Visible = true
+
+    cheatBase.Content.ElementContent.Size = UDim2.fromScale(0, 1)
+    cheatBase.Content.Text.Size = UDim2.fromScale(1, 1)
+
+    cheatBase.Parent = self.Section.Border.Content
+    cheatBase.LayoutOrder = getLayoutOrder(self.Section.Border.Content)
+
+    return cheatBase
+end
+
 return UILibrary
