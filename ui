@@ -148,7 +148,7 @@ local function getObjGen()
                 UIPadding_8 = Instance.new("UIPadding"),
                 Logo = Instance.new("ImageLabel"),
                 UIGradient_5 = Instance.new("UIGradient"),
-                CheatHolder = Instance.new("Frame"),
+                CheatHolder = Instance.new("ScrollingFrame"),
                 UIListLayout_13 = Instance.new("UIListLayout"),
                 Fill_2 = Instance.new("ImageLabel"),
                 DivLine = Instance.new("Frame"),
@@ -364,7 +364,7 @@ local function getObjGen()
             Gui.Selection.Name = "Selection"
             Gui.Selection.Parent = Gui.Checkbox
             Gui.Selection.AnchorPoint = Vector2.new(0.5, 0.5)
-            Gui.Selection.BackgroundColor3 = Color3.fromRGB(255, 160, 0)
+            Gui.Selection.BackgroundColor3 = Color3.fromRGB(83, 87, 158)
             Gui.Selection.BackgroundTransparency = 1.000
             Gui.Selection.BorderSizePixel = 0
             Gui.Selection.Position = UDim2.new(0.5, 0, 0.5, 0)
@@ -1007,7 +1007,7 @@ local function getObjGen()
             Gui.Select.Size = UDim2.new(1, 0, 1, 0)
             Gui.Select.ZIndex = 120
             Gui.Select.Image = "rbxassetid://7890831727"
-            Gui.Select.ImageColor3 = Color3.fromRGB(255, 160, 0)
+            Gui.Select.ImageColor3 = Color3.fromRGB(83, 87, 158)
             Gui.Select.ImageTransparency = 1.000
             Gui.Select.ScaleType = Enum.ScaleType.Slice
             Gui.Select.SliceCenter = Rect.new(512, 512, 512, 512)
@@ -1044,7 +1044,7 @@ local function getObjGen()
             Gui.Select_2.Size = UDim2.new(1, 0, 1, 0)
             Gui.Select_2.ZIndex = 121
             Gui.Select_2.Image = "rbxassetid://7890925834"
-            Gui.Select_2.ImageColor3 = Color3.fromRGB(255, 160, 0)
+            Gui.Select_2.ImageColor3 = Color3.fromRGB(83, 87, 158)
             Gui.Select_2.ImageTransparency = 1.000
             Gui.Select_2.ScaleType = Enum.ScaleType.Slice
             Gui.Select_2.SliceCenter = Rect.new(512, 512, 512, 512)
@@ -1094,7 +1094,7 @@ local function getObjGen()
             Gui.Select_3.Size = UDim2.new(1, 0, 1, 0)
             Gui.Select_3.ZIndex = 121
             Gui.Select_3.Image = "http://www.roblox.com/asset/?id=8374820043"
-            Gui.Select_3.ImageColor3 = Color3.fromRGB(255, 160, 0)
+            Gui.Select_3.ImageColor3 = Color3.fromRGB(83, 87, 158)
             Gui.Select_3.ImageTransparency = 1.000
             Gui.Select_3.ScaleType = Enum.ScaleType.Slice
             Gui.Select_3.SliceCenter = Rect.new(512, 512, 512, 512)
@@ -1209,7 +1209,7 @@ local function getObjGen()
             Gui.Watermark.BackgroundTransparency = 1.000
             Gui.Watermark.Size = UDim2.new(0.5, 0, 0.0199999996, 0)
             Gui.Watermark.Font = Enum.Font.Gotham
-            Gui.Watermark.Text = "hydrahub v2 | nil | nil"
+            Gui.Watermark.Text = "MangoHub | nil | nil"
             Gui.Watermark.TextColor3 = Color3.fromRGB(255, 255, 255)
             Gui.Watermark.TextSize = 14.000
             Gui.Watermark.TextStrokeTransparency = 0.800
@@ -1227,7 +1227,7 @@ local function getObjGen()
             Gui.MainUI.AnchorPoint = Vector2.new(0.5, 0.5)
             Gui.MainUI.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
             Gui.MainUI.Position = UDim2.new(0.5, 0, 0.5, 0)
-            Gui.MainUI.Size = UDim2.fromScale(0.68, 0.78)
+            Gui.MainUI.Size = UDim2.fromScale(0.56, 0.85)
             Gui.MainUI.ZIndex = 100
 
             Gui.DropShadowHolder_9.Name = "DropShadowHolder"
@@ -1271,7 +1271,8 @@ local function getObjGen()
             Gui.UserInfo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Gui.UserInfo.BackgroundTransparency = 1.000
             Gui.UserInfo.ClipsDescendants = true
-            Gui.UserInfo.Size = UDim2.new(1.85000002, 0, 0.150000006, 0)
+            Gui.UserInfo.Size = UDim2.new(0, 0, 0, 0)
+            Gui.UserInfo.Visible = false
 
             Gui.Content_5.Name = "Content"
             Gui.Content_5.Parent = Gui.UserInfo
@@ -1352,7 +1353,7 @@ local function getObjGen()
             Gui.Cheats_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Gui.Cheats_2.BackgroundTransparency = 1.000
             Gui.Cheats_2.LayoutOrder = -1
-            Gui.Cheats_2.Size = UDim2.new(1, 0, 0.850000024, 0)
+            Gui.Cheats_2.Size = UDim2.new(1, 0, 1, 0)
 
             Gui.UIListLayout_12.Parent = Gui.Cheats_2
             Gui.UIListLayout_12.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -1372,7 +1373,7 @@ local function getObjGen()
             Gui.Logo.Size = UDim2.new(1, 0, 0.100000001, 0)
             Gui.Logo.ZIndex = 122
             Gui.Logo.Image = "rbxassetid://8343875413"
-            Gui.Logo.ImageColor3 = Color3.fromRGB(255, 165, 0)
+            Gui.Logo.ImageColor3 = Color3.fromRGB(134, 142, 255)
             Gui.Logo.ScaleType = Enum.ScaleType.Fit
 
             Gui.UIGradient_5.Color =
@@ -1387,7 +1388,15 @@ local function getObjGen()
             Gui.CheatHolder.Parent = Gui.Cheats_2
             Gui.CheatHolder.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Gui.CheatHolder.BackgroundTransparency = 1.000
-            Gui.CheatHolder.Size = UDim2.new(1, 8, 0.699999988, 0)
+            Gui.CheatHolder.BorderSizePixel = 0
+            Gui.CheatHolder.Size = UDim2.new(1, 0, 0.88, 0)
+            Gui.CheatHolder.AutomaticCanvasSize = Enum.AutomaticSize.Y
+            Gui.CheatHolder.CanvasSize = UDim2.new(0, 0, 0, 0)
+            Gui.CheatHolder.ScrollBarThickness = 2
+            Gui.CheatHolder.ScrollBarImageTransparency = 0.6
+            Gui.CheatHolder.ScrollBarImageColor3 = Color3.fromRGB(134, 142, 255)
+            Gui.CheatHolder.ScrollingDirection = Enum.ScrollingDirection.Y
+            Gui.CheatHolder.ClipsDescendants = true
 
             Gui.UIListLayout_13.Parent = Gui.CheatHolder
             Gui.UIListLayout_13.HorizontalAlignment = Enum.HorizontalAlignment.Center
@@ -1451,7 +1460,7 @@ local function getObjGen()
             Gui.Sidebar2.Size = UDim2.new(0.850000024, 0, 1, 0)
 
             Gui.UIAspectRatioConstraint_7.Parent = Gui.MainUI
-            Gui.UIAspectRatioConstraint_7.AspectRatio = 1.74
+            Gui.UIAspectRatioConstraint_7.AspectRatio = 1.55
 
             Gui.ColorPickerOverlay.Name = "ColorPickerOverlay"
             Gui.ColorPickerOverlay.Parent = Gui.MainUI
@@ -2030,7 +2039,7 @@ local function getObjGen()
             Gui.CategoryFrame.AutomaticCanvasSize = Enum.AutomaticSize.Y
             Gui.CategoryFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
             Gui.CategoryFrame.ScrollBarThickness = 3
-            Gui.CategoryFrame.ScrollBarImageColor3 = Color3.fromRGB(255, 160, 0)
+            Gui.CategoryFrame.ScrollBarImageColor3 = Color3.fromRGB(83, 87, 158)
             Gui.CategoryFrame.ScrollBarImageTransparency = 0.4
 
             Gui.Left.Name = "Left"
@@ -2100,7 +2109,7 @@ local function getObjGen()
             Gui.SectionTitle.ZIndex = 110
             Gui.SectionTitle.Font = Enum.Font.GothamBold
             Gui.SectionTitle.Text = "TEXT BOXES"
-            Gui.SectionTitle.TextColor3 = Color3.fromRGB(255, 160, 0)
+            Gui.SectionTitle.TextColor3 = Color3.fromRGB(83, 87, 158)
             Gui.SectionTitle.TextScaled = false
             Gui.SectionTitle.TextSize = 12.000
             Gui.SectionTitle.TextWrapped = true
@@ -3267,7 +3276,7 @@ function UILibrary.new(gameName, userId, rank)
     local Drag = Draggable.Drag(window.MainUI, Frame)
 
     --// Customize the GUI
-    window.Watermark.Text = ("hydrahub v2 | %s | %s"):format(userId, gameName)
+    window.Watermark.Text = ("MangoHub | %s | %s"):format(userId, gameName)
     local userinfo = window.MainUI.Sidebar.ContentHolder.UserInfo.Content
     userinfo.Rank.Text = rank
     userinfo.Title.Text = userId
@@ -3732,7 +3741,7 @@ function UILibrary.Window:ChangeCategory(new)
             Object.Content.Image,
             TI,
             {
-                ImageColor3 = Color3.fromRGB(255, 160, 0)
+                ImageColor3 = Color3.fromRGB(83, 87, 158)
             }
         ):Play()
 
@@ -3740,7 +3749,7 @@ function UILibrary.Window:ChangeCategory(new)
             Object.Content.Title,
             TI,
             {
-                TextColor3 = Color3.fromRGB(255, 160, 0)
+                TextColor3 = Color3.fromRGB(83, 87, 158)
             }
         ):Play()
 
@@ -3828,7 +3837,7 @@ function UILibrary.Window:ChangeCategorySelection(name)
             Object.InnerContent.Image,
             TI,
             {
-                ImageColor3 = Color3.fromRGB(255, 160, 0)
+                ImageColor3 = Color3.fromRGB(83, 87, 158)
             }
         ):Play()
 
@@ -3836,7 +3845,7 @@ function UILibrary.Window:ChangeCategorySelection(name)
             Object.InnerContent.Title,
             TI,
             {
-                TextColor3 = Color3.fromRGB(255, 160, 0)
+                TextColor3 = Color3.fromRGB(83, 87, 158)
             }
         ):Play()
 
@@ -4288,7 +4297,7 @@ function UILibrary.Section:Toggle(sett, callback)
                 element,
                 TI,
                 {
-                    BackgroundColor3 = Color3.fromRGB(255, 160, 0)
+                    BackgroundColor3 = Color3.fromRGB(83, 87, 158)
                 }
             ):Play()
         else
