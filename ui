@@ -958,7 +958,7 @@ local function getObjGen()
             Gui.Content_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
             Gui.Content_3.BackgroundTransparency = 1.000
             Gui.Content_3.BorderSizePixel = 0
-            Gui.Content_3.ClipsDescendants = false
+            Gui.Content_3.ClipsDescendants = true
             Gui.Content_3.Selectable = false
             Gui.Content_3.Size = UDim2.new(1, 0, 1, 0)
             Gui.Content_3.ZIndex = 113
@@ -1227,7 +1227,7 @@ local function getObjGen()
             Gui.MainUI.AnchorPoint = Vector2.new(0.5, 0.5)
             Gui.MainUI.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
             Gui.MainUI.Position = UDim2.new(0.5, 0, 0.5, 0)
-            Gui.MainUI.Size = UDim2.fromScale(0.46, 0.85)
+            Gui.MainUI.Size = UDim2.fromScale(0.33, 0.85)
             Gui.MainUI.ZIndex = 100
 
             Gui.DropShadowHolder_9.Name = "DropShadowHolder"
@@ -5294,7 +5294,7 @@ function UILibrary.Section:Dropdown(sett, callback)
             Option.Name = v
             Option.Parent = element.OptionHolder.ContentHolder.Content
             Option.LayoutOrder = counter
-            Option.Size = UDim2.fromScale(1, 1 / totalCounter)
+            Option.Size = UDim2.new(1, 0, 0, 28)
 
             Option.Current.Text = v
 
@@ -5375,7 +5375,7 @@ function UILibrary.Section:Dropdown(sett, callback)
                 element.OptionHolder,
                 TI,
                 {
-                    Size = UDim2.fromScale(1, math.clamp(totalCounter, 0, 999) * .7)
+                    Size = UDim2.new(1, 0, 0, math.min(totalCounter, 5) * 28)
                 }
             ):Play()
 
@@ -5419,7 +5419,7 @@ function UILibrary.Section:Dropdown(sett, callback)
                 element.OptionHolder,
                 TI,
                 {
-                    Size = UDim2.fromScale(1, 0)
+                    Size = UDim2.new(1, 0, 0, 0)
                 }
             ):Play()
 
