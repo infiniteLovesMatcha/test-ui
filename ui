@@ -1227,7 +1227,7 @@ local function getObjGen()
             Gui.MainUI.AnchorPoint = Vector2.new(0.5, 0.5)
             Gui.MainUI.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
             Gui.MainUI.Position = UDim2.new(0.5, 0, 0.5, 0)
-            Gui.MainUI.Size = UDim2.fromScale(0.56, 0.85)
+            Gui.MainUI.Size = UDim2.fromScale(0.46, 0.85)
             Gui.MainUI.ZIndex = 100
 
             Gui.DropShadowHolder_9.Name = "DropShadowHolder"
@@ -1460,7 +1460,7 @@ local function getObjGen()
             Gui.Sidebar2.Size = UDim2.new(0.850000024, 0, 1, 0)
 
             Gui.UIAspectRatioConstraint_7.Parent = Gui.MainUI
-            Gui.UIAspectRatioConstraint_7.AspectRatio = 1.55
+            Gui.UIAspectRatioConstraint_7.AspectRatio = 1.48
 
             Gui.ColorPickerOverlay.Name = "ColorPickerOverlay"
             Gui.ColorPickerOverlay.Parent = Gui.MainUI
@@ -5293,7 +5293,7 @@ function UILibrary.Section:Dropdown(sett, callback)
 
             Option.Name = v
             Option.Parent = element.OptionHolder.ContentHolder.Content
-            Option.LayoutOrder = i
+            Option.LayoutOrder = counter
             Option.Size = UDim2.fromScale(1, 1 / totalCounter)
 
             Option.Current.Text = v
@@ -5456,6 +5456,18 @@ function UILibrary.Section:Dropdown(sett, callback)
     functions.getValue = function()
         return options
     end
+
+    table.insert(
+        conns,
+        element.MainHolder.InputBegan:Connect(
+            function(input, gp)
+                if gp then return end
+                if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    functions.openMenu()
+                end
+            end
+        )
+    )
 
     table.insert(
         conns,
