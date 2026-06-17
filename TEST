@@ -2306,8 +2306,31 @@ function Luna:CreateWindow(WindowSettings)
 	LoadingFrame.Version.Text = LoadingFrame.Frame.Frame.Title.Text == "Luna Interface Suite" and Release or "Luna UI"
 
 	Navigation.Player.icon.ImageLabel.Image = Players:GetUserThumbnailAsync(Players.LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size48x48)
-	Navigation.Player.Namez.Text = Players.LocalPlayer.DisplayName
-	Navigation.Player.TextLabel.Text = Players.LocalPlayer.Name
+	local _navBlurred = true
+	local _navDisplay = Players.LocalPlayer.DisplayName
+	local _navName    = Players.LocalPlayer.Name
+	local function _updateNav()
+		if _navBlurred then
+			Navigation.Player.Namez.Text    = "●●●●●"
+			Navigation.Player.TextLabel.Text = "●●●●●"
+		else
+			Navigation.Player.Namez.Text    = _navDisplay
+			Navigation.Player.TextLabel.Text = _navName
+		end
+	end
+	_updateNav()
+	pcall(function()
+		local navBtn = Instance.new("TextButton")
+		navBtn.Size = UDim2.new(1, 0, 1, 0)
+		navBtn.BackgroundTransparency = 1
+		navBtn.Text = ""
+		navBtn.ZIndex = Navigation.Player.ZIndex + 5
+		navBtn.Parent = Navigation.Player
+		navBtn.MouseButton1Click:Connect(function()
+			_navBlurred = not _navBlurred
+			_updateNav()
+		end)
+	end)
 
 	for i,v in pairs(Main.Controls:GetChildren()) do
 		v.Visible = false
