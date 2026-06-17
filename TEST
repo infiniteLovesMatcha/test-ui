@@ -2604,7 +2604,7 @@ function Luna:CreateWindow(WindowSettings)
 				HomeTabPage.player.user.Text = _realUser .. " - " .. WindowSettings.Name
 			end
 		end
-		_updateName()
+		pcall(_updateName)
 		pcall(function()
 			local btn = Instance.new("TextButton")
 			btn.Size = UDim2.new(1, 0, 1, 0)
@@ -2614,7 +2614,7 @@ function Luna:CreateWindow(WindowSettings)
 			btn.Parent = HomeTabPage.player
 			btn.MouseButton1Click:Connect(function()
 				_nameBlurred = not _nameBlurred
-				_updateName()
+				pcall(_updateName)
 			end)
 		end)
 
