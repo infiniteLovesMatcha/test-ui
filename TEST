@@ -2641,52 +2641,51 @@ function Luna:CreateWindow(WindowSettings)
 			Luna:Notification({Title = "Discord", Content = "Discord link copied to clipboard!", Icon = "content_copy"})
 		end)
 
-		local friendsCooldown = 0
+		local friendsLastCheck = -999
 		local function getPing() return math.clamp(game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValue(), 10, 700) end
 
 		local function checkFriends()
-			if friendsCooldown == 0 then
-
-				friendsCooldown = 25
-
+			if os.clock() - friendsLastCheck < 120 then return end
+			friendsLastCheck = os.clock()
+			task.spawn(function()
 				local playersFriends = {}
 				local friendsInTotal = 0
-				local onlineFriends = 0 
-				local friendsInGame = 0 
+				local onlineFriends = 0
+				local friendsInGame = 0
 
-				local list = Players:GetFriendsAsync(Player.UserId)
-				while true do -- loop through all the pages
-					for _, data in list:GetCurrentPage() do
-						friendsInTotal +=1
-						table.insert(playersFriends, Data)
-					end
-
-					if list.IsFinished then
-						-- stop the loop since this is the last page
-						break
-					else 
-						-- go to the next page
-						list:AdvanceToNextPageAsync()
-					end
-				end
-				for i, v in pairs(Player:GetFriendsOnline()) do
-					onlineFriends += 1
+				local ok, list = pcall(function() return Players:GetFriendsAsync(Player.UserId) end)
+				if ok and list then
+					pcall(function()
+						while true do
+							for _, data in list:GetCurrentPage() do
+								friendsInTotal += 1
+								table.insert(playersFriends, data)
+							end
+							if list.IsFinished then break end
+							list:AdvanceToNextPageAsync()
+						end
+					end)
 				end
 
-				for i,v in pairs(playersFriends) do
+				pcall(function()
+					for _, v in pairs(Player:GetFriendsOnline()) do
+						onlineFriends += 1
+					end
+				end)
+
+				for _, v in pairs(playersFriends) do
 					if Players:FindFirstChild(v.Username) then
-						friendsInGame = friendsInGame + 1
+						friendsInGame += 1
 					end
 				end
 
-				HomeTabPage.detailsholder.dashboard.Friends.All.Value.Text = tostring(friendsInTotal).." friends"
-				HomeTabPage.detailsholder.dashboard.Friends.Offline.Value.Text = tostring(friendsInTotal - onlineFriends).." friends"
-				HomeTabPage.detailsholder.dashboard.Friends.Online.Value.Text = tostring(onlineFriends).." friends"
-				HomeTabPage.detailsholder.dashboard.Friends.InGame.Value.Text = tostring(friendsInGame).." friends"
-
-			else
-				friendsCooldown -= 1
-			end
+				pcall(function()
+					HomeTabPage.detailsholder.dashboard.Friends.All.Value.Text = tostring(friendsInTotal).." friends"
+					HomeTabPage.detailsholder.dashboard.Friends.Offline.Value.Text = tostring(friendsInTotal - onlineFriends).." friends"
+					HomeTabPage.detailsholder.dashboard.Friends.Online.Value.Text = tostring(onlineFriends).." friends"
+					HomeTabPage.detailsholder.dashboard.Friends.InGame.Value.Text = tostring(friendsInGame).." friends"
+				end)
+			end)
 		end
 
 		local function format(Int)
@@ -4451,6 +4450,9 @@ function Luna:CreateWindow(WindowSettings)
 				Button = Elements.Template.Button:Clone()
 			else
 				Button = Elements.Template.ButtonDesc:Clone()
+			end
+			if not Button:FindFirstChildOfClass("UIStroke") then
+				local s = Instance.new("UIStroke"); s.Thickness = 1; s.Color = Color3.fromRGB(64,61,76); s.Parent = Button
 			end
 			Button.Name = ButtonSettings.Name
 			Button.Title.Text = ButtonSettings.Name
