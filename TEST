@@ -6788,6 +6788,20 @@ function Luna:CreateWindow(WindowSettings)
 		LunaUI.MobileSupport.Visible = false
 	end)
 
+	-- Expose a Toggle method so external code can show/hide the window
+	Window.Toggle = function()
+		if Window.State then
+			Hide(Main, Window.Bind, true)
+			dragBar.Visible = false
+			Window.State = false
+		else
+			Unhide(Main, Window.CurrentTab)
+			dragBar.Visible = true
+			Window.State = true
+			LunaUI.MobileSupport.Visible = false
+		end
+	end
+
 	return Window
 end
 
